@@ -1,0 +1,308 @@
+*{
+  padding: 0;
+  margin: 0;
+  /*box-sizing: border-box;*/
+}
+/**********/
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 117vh; /*texto desceu 150*/
+  background: linear-gradient(100deg, #0C0C0C, #481E14, #9B3922, #F2613F);/*100deg significa angulo*/
+  background-size: 330% 330%;
+  animation: color 4s ease infinite;
+}
+/*animação do fundo*/
+@keyframes color{   /*keyframeconpativilidade dos navegadore*/
+  0%{ 
+    background-position: 0% 50%;      
+  }
+  50%{
+    background-position: 100% 50%; 
+  }
+  100% {
+    background-position: 0% 50%; 
+  }
+}
+
+
+/**********/
+/*Mai emgloba todo o cartão*/
+.birthdayCard {
+  position: relative;
+  width: 250px; /*se desloca o texto para o centro*/
+  height: 350px;/*distancia de baixo para acima*/
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 5s;
+}
+
+.birthdayCard:hover {
+  transform: perspective(2500px) rotate(5deg); /*gira o cartão sem colocar o punteiro no cartão*/
+  box-shadow: inset 100px 20px 100px rgba(231, 10, 10, 0.15), 0 10px 100px rgba(255, 213, 5, 0.99); /*efeito de sombra qu evai crecendo*/
+}
+
+.birthdayCard:hover .cardFront {
+  transform: rotateY(-160deg); /* o texto decima se muda e fica de otro lado*/
+}
+
+.birthdayCard:hover .front-text {
+  display: none;  /*se esconde o texto da portada assim que encostar*/
+}
+
+/**********/
+
+/*Style the front of the card  portada*/
+.cardFront {
+  position: relative;
+  background-color: rgb(247, 151, 16); /*muda a cor da portada*/
+  width: 250px;  /*largura e alturaa mesma medida da mãe*/
+  height:350px;
+  overflow: hidden;
+  transform-origin: left; /*o cartão se abre*/
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+  transition: .4s;
+  border: 5px solid rgb(250, 153, 7);
+}
+
+img{
+  position: relative;
+  width: 250px; 
+  height: 140px;
+}
+
+/**********/
+/*testo da portada*/
+.happy, .toyou {
+  position: relative;
+  font-family: didot;
+  text-align: center;   /*mamita ficou centralizado encima*/
+  backface-visibility: hidden;
+  font-size: 30px; 
+}
+.happy { /*feliz*/
+  top:17px; /*o texto portada feliz ficou em baixo  top:198px;*/
+  
+ }
+.toyou { /*nome*/
+top:220px; /* texto portada mamita desceu  top:123px*/
+}
+.bday { /*cumplanos*/
+  position: relative;
+  font-family: arial;
+  font-size: 30px;
+  text-align: center; /* texto cumpleanos da oportada centralizou*/
+  top:220px; /* os 3 textos ficaron um encima do outro  top:163px*/
+ }
+ 
+ /**********/
+
+/*mesa azul */
+.plate {
+  position: absolute;
+  width: 130px;
+  height: 5px;
+  background-color: #00bbf9;
+  left:60px;
+  top:100px;  /*aqui subi todo o bolo*/
+}
+
+/**********/
+/*niveis do bolo*/
+.cake {
+  position: absolute;
+  overflow: hidden;
+  width:100px;
+  height: 50px;
+  background-color: #f15bb5;
+  border-radius: 10px 10px 0 0;
+  top:-50px;
+  left:15px;
+  box-shadow: inset 0 -15px #f9c74f, inset 0 15px #432818;
+}
+ /*cuberta do bolo cor cafe */  
+.cake:before {
+  content:"";
+  position: absolute;
+  background-color: #432818;
+  width:10px;
+  height:20px;
+  top:5px;
+  border-radius:20px;
+  box-shadow: 10px 5px #f15bb5, 20px 0px #432818, 30px 2px #f15bb5, 40px 5px #432818, 50px 5px #f15bb5, 60px 0px #432818, 70px 5px #f15bb5, 80px 5px #432818, 90px 5px #f15bb5;
+}
+/*vela*/
+.plate:before {
+  content:"";
+  position: absolute;
+  background: repeating-linear-gradient(-45deg, #9b5de5, #9b5de5 3px, #00f5d4 3px, #00f5d4 6px);
+  width:7px;
+  height: 25px;
+  top:-75px;
+  left:61px;
+}
+/*pabilo da vela*/
+.plate:after {
+  content:"";
+  position: absolute;
+  width:1px; 
+  height: 5px;
+  background-color: #333;
+  top:-80px;
+  left:64px;
+}
+/*cham da vela*/
+.flame {
+  position: absolute;
+  background-color: #fb5607;
+  border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  transform: rotate(-45deg);
+  width:25px;
+  height:15px;
+  opacity:0.7;
+  top:-93px;
+  left:57px;
+}
+
+/**********/
+   /*Style da parte interna do cartão*/
+.cardInside {
+  position: absolute;
+  background-color: #047962;
+  width: 250px;
+  height:350px;
+  z-index:-1;
+  left:0;
+  top:0;
+  box-shadow: inset 100px 20px 100px rgba(144, 63, 63, 0.2);  /* é uma sombra quando posicionar o mouse*/
+  border: 5px solid green;
+}
+
+/**********/
+.wishes { /*desejos mensagem do cartão*/
+  position: relative;
+  top: 50px;
+  margin: 25px;
+}
+p {
+  margin-top: 10px;
+  font-family: 'arial';
+  font-size: 10px;
+  color: #ece2e2;
+}
+.name {
+  margin-left: 115px;
+  margin-top: 20px;
+}
+
+/********/
+/* botão aperte aqui*/
+input{
+  
+  margin-top: -520px; /*sim deleto o o texto vai ficar encima das fotos*/
+  position: absolute;
+  /*width: 260px;*/
+  height: 100px; /*150px*/
+  
+  border-radius: 10px;
+  background-color: #e40c0c;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: 4px 8px 4px #847c7c; /*efeito de sombra*/
+  cursor: pointer;
+  transition: all .9s;
+}
+input:hover{
+  background: #fafa06;  /*quando se posiciona o mause se oscurese*/
+}
+
+/*animaçãodo botão aperte aqui*/
+.flash{
+  animation-name:flash;
+  animation-duration: 3s;
+  animation-iteration-count: infinite ;
+}
+@keyframes flash{   /*keyframeconpativilidade dos navegadore*/
+  0%{  
+    background: #0e9e73;
+    padding: 10px 80px;
+  }
+  50%{
+    background: #032522;
+    padding: 80px 100px;  
+  }
+  100% {
+    background: #0e9e73;
+    padding: 10px 80px;
+  }
+}
+
+
+/********/
+/*link clicar para ver a surpresa e mudar a pagina principal*/
+a{
+  text-decoration: none; /*a linha debaixo do texto sumio*/
+  font-size: 20px;
+  color: #fff;
+}
+a:hover{
+  position: absolute;
+  width: 260px;
+  height: 90px;
+  border-radius: 10px;
+  background-color: #0a4025;
+  font-size: 30px;
+  color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: all .9s;
+  box-shadow: inset 100px 20px 100px rgba(214, 197, 197, 0.2);  /* cria um degrade dentro do quadrado*/
+}
+
+/**********/
+/*animação da linha preta*/
+a::after{
+  content: " ";
+  width: 0%;
+  height: 9px;
+  background-color: #000;
+  position: absolute; /*crio lalinha posição lateral*/
+  bottom: 0; /*desceu alinha*/
+  left: 0; /*posiciono a linha coretamenete*/
+  transition: 0.8s ease-in-out;
+}
+a:hover::after{
+  width: 100%;
+}
+
+/**********/
+/*animação do fantasma*/
+fundo{
+  height: 100vh;
+  display: flex;
+  position: relative;
+  align-items: left;
+  justify-content: left;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rbga(0,0,0,0.7)),
+    url("./imagens/bg.jpg");
+  background-repeat: round;
+}
+.fundo img{   /*img do ghost*/
+  width: 100px;
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float{
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-90px);/*o fantasma sube e desce*/
+  }
+}
+
+
